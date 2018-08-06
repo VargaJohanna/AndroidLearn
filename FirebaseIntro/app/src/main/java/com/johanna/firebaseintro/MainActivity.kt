@@ -3,6 +3,11 @@ package com.johanna.firebaseintro
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -11,6 +16,8 @@ import java.util.*
 import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
+    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+    private var currentUser: FirebaseUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val firebaseDB = FirebaseDatabase.getInstance()
         val databaseRef = firebaseDB.getReference("messages").push()
+
 
         val employee = Employee(
                 "Andor Kotkodacs",
@@ -42,6 +50,28 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+        // Sign in
+        mAuth.signInWithEmailAndPassword("hanna@me.com", "password")
+                .addOnCompleteListener{
+                    task: Task<AuthResult> ->
+                    if(task.isSuccessful) {
+                        Toast.makeText(this, "Signed in successful", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Signed in unsuccessful", Toast.LENGTH_SHORT).show()
+
+                    }
+                }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        currentUser = mAuth.currentUser
+
+        if(currentUser != null) {
+            Toast.makeText(this, "User is logged in", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "User is not logged in", Toast.LENGTH_SHORT).show()
+        }
     }
 
     data class Employee (
