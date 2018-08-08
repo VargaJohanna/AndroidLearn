@@ -1,7 +1,7 @@
 package com.johanna.firebaseintro
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
@@ -12,8 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.util.*
-import kotlin.collections.HashMap
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -31,30 +30,44 @@ class MainActivity : AppCompatActivity() {
                 "Andor Kotkodacs",
                 "Android Developer",
                 "1 Rainbow Avenue",
-                29 )
+                29)
 
         // Write
         databaseRef.setValue(employee)
 
         // Read
-        databaseRef.addValueEventListener(object : ValueEventListener{
-           override fun onDataChange(dataSnapshot: DataSnapshot?) {
-               if(dataSnapshot != null) {
-                   val value = dataSnapshot.value as HashMap<String, Any>
-                   Log.d("VALUE", value.get("name").toString())
-               }
-           }
+        databaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot?) {
+                if (dataSnapshot != null) {
+                    val value = dataSnapshot.value as HashMap<String, Any>
+                    Log.d("VALUE", value.get("name").toString())
+                }
+            }
+
             override fun onCancelled(error: DatabaseError?) {
-                if(error != null) {
+                if (error != null) {
                     Log.d("ERROR", error.message)
                 }
             }
         })
+
+        createACT.setOnClickListener {
+            // Create new user
+            mAuth.createUserWithEmailAndPassword(emailId.text.toString().trim(), passwordId.text.toString().trim())
+                .addOnCompleteListener { task: Task<AuthResult> ->
+                    if (task.isSuccessful) {
+                        val user: FirebaseUser = mAuth.currentUser!!
+                        Log.d("User", user.email.toString())
+                    } else {
+                        Log.d("error", task.toString())
+                    }
+                }
+        }
+
         // Sign in
         mAuth.signInWithEmailAndPassword("hanna@me.com", "password")
-                .addOnCompleteListener{
-                    task: Task<AuthResult> ->
-                    if(task.isSuccessful) {
+                .addOnCompleteListener { task: Task<AuthResult> ->
+                    if (task.isSuccessful) {
                         Toast.makeText(this, "Signed in successful", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this, "Signed in unsuccessful", Toast.LENGTH_SHORT).show()
@@ -67,14 +80,14 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         currentUser = mAuth.currentUser
 
-        if(currentUser != null) {
+        if (currentUser != null) {
             Toast.makeText(this, "User is logged in", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "User is not logged in", Toast.LENGTH_SHORT).show()
         }
     }
 
-    data class Employee (
+    data class Employee(
             var name: String,
             var position: String,
             var address: String,
