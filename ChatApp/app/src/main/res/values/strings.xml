@@ -8,4 +8,7 @@
     <string name="enter_password">Enter password</string>
     <string name="enter_email">Enter email</string>
     <string name="login">Login</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="display_name">Display Name</string>
+    <string name="password_field">Password</string>
 </resources>
