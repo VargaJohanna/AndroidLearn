@@ -26,8 +26,8 @@ class CreateAccountActivity : AppCompatActivity() {
             val password = accountPasswordEt.text.toString().trim()
 
             if (!TextUtils.isEmpty(displayName)
-                    || !TextUtils.isEmpty(email)
-                    || !TextUtils.isEmpty(password)) {
+                    && !TextUtils.isEmpty(email)
+                    && !TextUtils.isEmpty(password)) {
                 createAccount(email, password, displayName)
             } else {
                 Toast.makeText(this, "Please fill out the fields", Toast.LENGTH_SHORT).show()
@@ -53,7 +53,7 @@ class CreateAccountActivity : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "User created!", Toast.LENGTH_SHORT).show()
                                 val dashboardActivity = Intent(this, DashboardActivity::class.java)
-                                dashboardActivity.putExtra("name", displayName)
+                                dashboardActivity.putExtra(DashboardActivity.name, displayName)
                                 startActivity(dashboardActivity)
                                 finish()
                             } else {

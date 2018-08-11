@@ -15,5 +15,9 @@ import kotlinx.android.synthetic.main.activity_main.*
         createAccountButton.setOnClickListener{
             startActivity(Intent(this, CreateAccountActivity::class.java))
         }
+
+        loginButton.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 }
