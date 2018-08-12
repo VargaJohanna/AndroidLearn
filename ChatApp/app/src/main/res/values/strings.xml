@@ -20,4 +20,8 @@
     <string name="settingsStatusPlaceholder">Here comes the status</string>
     <string name="change_picture">Change Picture</string>
     <string name="change_status">Change status</string>
+    <string name="enterStatus">Enter your status</string>
+    <string name="status_hint">Status ...</string>
+    <string name="updateStatus">Update Status</string>
+    <string name="hint_status_enter">Enter your new status</string>
 </resources>
