@@ -21,4 +21,12 @@ class SectionPageAdapter(fm: android.support.v4.app.FragmentManager): FragmentPa
     override fun getCount(): Int {
         return 2
     }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when(position) {
+            0 -> "USERS"
+            1 -> "CHATS"
+            else -> "Select a tab"
+        }
+    }
 }

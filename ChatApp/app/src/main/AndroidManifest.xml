@@ -19,6 +19,7 @@
         <activity android:name=".activities.activities.LoginActivity" />
         <activity android:name=".activities.activities.CreateAccountActivity" />
         <activity android:name=".activities.activities.DashboardActivity"></activity>
+        <activity android:name=".activities.activities.SettingsActivity"></activity>
     </application>
 
 </manifest>
