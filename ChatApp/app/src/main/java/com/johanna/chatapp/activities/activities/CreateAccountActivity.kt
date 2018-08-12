@@ -1,4 +1,4 @@
-package com.johanna.chatapp.activities
+package com.johanna.chatapp.activities.activities
 
 import android.content.Intent
 import android.os.Bundle

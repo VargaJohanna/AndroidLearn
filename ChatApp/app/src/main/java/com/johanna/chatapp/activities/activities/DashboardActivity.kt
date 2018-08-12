@@ -1,4 +1,4 @@
-package com.johanna.chatapp.activities
+package com.johanna.chatapp.activities.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +13,8 @@ class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+        val supportActionBar = supportActionBar
+        if (supportActionBar != null) supportActionBar.title = "Dashboard"
 
         if (intent.extras != null) {
             val userName = intent.extras.get(name)
