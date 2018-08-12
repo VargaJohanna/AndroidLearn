@@ -16,4 +16,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logout">Logout</string>
     <string name="settings">Settings</string>
+    <string name="userNamePlaceholder">User Name</string>
+    <string name="settingsStatusPlaceholder">Here comes the status</string>
+    <string name="change_picture">Change Picture</string>
+    <string name="change_status">Change status</string>
 </resources>
