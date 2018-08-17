@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_create_account.*
 
 class CreateAccountActivity : AppCompatActivity() {
     private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    private val mDataBase = FirebaseDatabase.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +41,8 @@ class CreateAccountActivity : AppCompatActivity() {
                         val currentUser = mAuth.currentUser
                         val userId = currentUser?.uid
                         val userObject = HashMap<String, String>()
-                        mDataBase.child("Users").child(userId!!)
+                        val mDataBase = FirebaseDatabase.getInstance().reference
+                                .child("Users").child(userId!!)
 
                         userObject.put("display_name", displayName)
                         userObject.put("status", "Hello")
