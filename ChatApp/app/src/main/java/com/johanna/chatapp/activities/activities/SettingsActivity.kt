@@ -43,13 +43,6 @@ class SettingsActivity : AppCompatActivity() {
             intent.putExtra(StatusActivity.status, settingsStatus.text.toString().trim())
             startActivity(intent)
         }
-
-        settingsChangeImage.setOnClickListener {
-            val galleryIntent = Intent()
-            galleryIntent.type = "image/*"
-            galleryIntent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(Intent.createChooser(galleryIntent, "SELECT IMAGE"), GALLERY_ID)
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
