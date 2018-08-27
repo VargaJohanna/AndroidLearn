@@ -24,4 +24,6 @@
     <string name="status_hint">Status ...</string>
     <string name="updateStatus">Update Status</string>
     <string name="hint_status_enter">Enter your new status</string>
+    <string name="defaultProfileName">Profile Name</string>
+    <string name="profile_status">Profile Status</string>
 </resources>

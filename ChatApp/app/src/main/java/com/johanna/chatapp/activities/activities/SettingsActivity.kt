@@ -26,10 +26,10 @@ class SettingsActivity : AppCompatActivity() {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                             val userDisplayName = dataSnapshot.child("display_name").value
                             val userImage = dataSnapshot.child("image").value
-                            val userStatus = dataSnapshot.child("status").value
+                            val userStatusData = dataSnapshot.child("status").value
                             val userThumbImage = dataSnapshot.child("thumb_image").value
 
-                            settingsStatus.text = userStatus.toString()
+                            settingsStatus.text = userStatusData.toString()
                             settingsDisplayName.text = userDisplayName.toString()
                         }
 
