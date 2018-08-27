@@ -26,4 +26,7 @@
     <string name="hint_status_enter">Enter your new status</string>
     <string name="defaultProfileName">Profile Name</string>
     <string name="profile_status">Profile Status</string>
+    <string name="user_name">User Name</string>
+    <string name="send_message">Send Message</string>
+    <string name="message">Message</string>
 </resources>

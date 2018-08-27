@@ -45,4 +45,9 @@ class UsersFragment : Fragment() {
         usersAdapter.startListening()
     }
 
+    override fun onStop() {
+        super.onStop()
+        usersAdapter.stopListening()
+    }
+
 }
