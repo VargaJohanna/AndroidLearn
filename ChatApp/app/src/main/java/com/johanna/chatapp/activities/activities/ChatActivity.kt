@@ -1,5 +1,6 @@
 package com.johanna.chatapp.activities.activities
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -60,7 +62,7 @@ class ChatActivity : AppCompatActivity() {
                     holder.profileImageViewLeft.visibility = View.GONE
                     holder.messageTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
                     holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
-                    holder.messengerNameTextView.text = "me"
+                    holder.messengerNameTextView.text = getString(R.string.myMessage)
 
                 } else {
                     // Image to the left
@@ -78,7 +80,7 @@ class ChatActivity : AppCompatActivity() {
 
                                 override fun onDataChange(data: DataSnapshot) {
                                     val displayName = data.child("display_name").value.toString()
-                                    holder.messengerNameTextView.text = displayName
+                                    holder.messengerNameTextView.text = "$displayName's message:"
                                 }
 
                             })
@@ -107,6 +109,8 @@ class ChatActivity : AppCompatActivity() {
 
                 mFirebaseDatabaseRef.child("messages").push().setValue(friendlyMessage)
                 messageEdit.setText("")
+                val inputManager:InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.SHOW_FORCED)
             }
         }
     }

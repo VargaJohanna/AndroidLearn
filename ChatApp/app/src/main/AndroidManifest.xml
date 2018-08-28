@@ -29,7 +29,8 @@
         <activity android:name=".activities.activities.StatusActivity" />
         <activity android:name=".activities.activities.ProfileActivity"
             android:parentActivityName=".activities.activities.DashboardActivity"/>
-        <activity android:name=".activities.activities.ChatActivity"></activity>
+        <activity android:name=".activities.activities.ChatActivity"
+            android:parentActivityName=".activities.activities.DashboardActivity"></activity>
     </application>
 
 </manifest>
