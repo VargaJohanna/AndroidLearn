@@ -70,15 +70,15 @@ class ChatActivity : AppCompatActivity() {
                     holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
 
                     //Get name from database (and image would be here too)
-                    mFirebaseDatabaseRef.child("Users").child(userId)
+                    mFirebaseDatabaseRef.child("Users").child(otherUserId)
                             .addValueEventListener(object : ValueEventListener {
                                 override fun onCancelled(data: DatabaseError) {
                                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                                 }
 
                                 override fun onDataChange(data: DataSnapshot) {
-                                    val displayName = data.child("display_name")
-                                    holder.messengerNameTextView.text = displayName.value.toString()
+                                    val displayName = data.child("display_name").value.toString()
+                                    holder.messengerNameTextView.text = displayName
                                 }
 
                             })
