@@ -8,11 +8,13 @@
     tools:context=".activities.activities.ChatActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/messageRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="457dp"
+        android:layout_above="@id/chatLinearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,8 +34,8 @@
             android:background="@drawable/ic_add_black_24dp"
             android:layout_weight="1"
             android:layout_width="40dp"
-            android:layout_gravity="bottom"
-            android:layout_height="40dp" />
+            android:layout_gravity="center_vertical"
+            android:layout_height="33dp" />
         
         <EditText
             android:id="@+id/messageEdit"
@@ -46,11 +48,11 @@
         
         <Button
             android:id="@+id/sendButton"
-            android:layout_gravity="bottom"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/ic_send_black_24dp"
-            android:layout_width="48dp"
+            android:layout_width="44dp"
             android:layout_weight="1"
-            android:layout_height="40dp" />
+            android:layout_height="35dp" />
 
     </LinearLayout>
 </RelativeLayout>

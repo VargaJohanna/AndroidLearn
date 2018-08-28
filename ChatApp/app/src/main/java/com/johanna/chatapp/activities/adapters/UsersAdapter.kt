@@ -63,9 +63,7 @@ class UsersAdapter (
             val options = arrayOf("Open User Profile", "Send Message")
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Choose what to do!")
-//            builder.setItems(options, DialogInterface.OnClickListener()) {
-//                override fun onClick
-//            }
+
             builder.setItems(options, DialogInterface.OnClickListener {
                 dialogInterface, i ->
                 val userName = holder.userNameText
