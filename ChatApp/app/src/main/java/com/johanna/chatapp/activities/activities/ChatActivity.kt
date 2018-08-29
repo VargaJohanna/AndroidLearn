@@ -20,8 +20,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.johanna.chatapp.R
 import com.johanna.chatapp.activities.models.FriendlyMessage
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_chat.*
+import java.lang.System.load
 
 class ChatActivity : AppCompatActivity() {
     companion object {
@@ -42,6 +44,7 @@ class ChatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chat)
 
         otherUserId = intent.extras.getString(userId)
+        val otherUserStatus = intent.extras.getString(userStatus)
         mLinearLayoutManager.stackFromEnd = true
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -64,6 +67,12 @@ class ChatActivity : AppCompatActivity() {
                     holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
                     holder.messengerNameTextView.text = getString(R.string.myMessage)
 
+                    val imageUrl = "https://api.adorable.io/avatars/145/$currentUser.png"
+                    Picasso.with(holder.profileImageViewRight.context)
+                            .load(imageUrl)
+                            .placeholder(R.drawable.profile_img)
+                            .into(holder.profileImageViewRight)
+
                 } else {
                     // Image to the left
                     holder.profileImageViewRight.visibility = View.GONE
@@ -80,7 +89,13 @@ class ChatActivity : AppCompatActivity() {
 
                                 override fun onDataChange(data: DataSnapshot) {
                                     val displayName = data.child("display_name").value.toString()
+                                    val imageUrl = "https://api.adorable.io/avatars/145/$otherUserStatus.png"
                                     holder.messengerNameTextView.text = "$displayName's message:"
+
+                                    Picasso.with(holder.profileImageViewLeft.context)
+                                            .load(imageUrl)
+                                            .placeholder(R.drawable.profile_img)
+                                            .into(holder.profileImageViewLeft)
                                 }
 
                             })

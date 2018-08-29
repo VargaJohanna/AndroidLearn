@@ -45,6 +45,7 @@ class UsersAdapter (
 
             userName.text = userNameText
             userStatus.text = userStatusText
+//            userProfileImage = userProfileImageLink
         }
     }
 
@@ -69,11 +70,9 @@ class UsersAdapter (
                 val userName = holder.userNameText
                 val userStatus = holder.userStatusText
                 val profileImage = holder.userProfileImageLink
-                Log.d("USERID I VALUE", i.toString())
 
                 if(i == 0) {
                     val profileIntent = Intent(context, ProfileActivity::class.java)
-                    Log.d("USERID IN ADAPTER", userId)
                     profileIntent.putExtra(ProfileActivity.userId, userId)
                     context.startActivity(profileIntent)
                 } else {

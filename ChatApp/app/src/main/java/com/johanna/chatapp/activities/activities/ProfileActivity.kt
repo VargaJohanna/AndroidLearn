@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.johanna.chatapp.R
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
@@ -29,18 +30,23 @@ class ProfileActivity : AppCompatActivity() {
             userIdValue = intent.extras.get(userId).toString()
         }
         Log.d("USERID", userId)
-        setUpProfile()
+        setUpProfile(userIdValue)
     }
 
-    private fun setUpProfile() {
+    private fun setUpProfile(userId: String) {
         mUserDatabase.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val displayName = dataSnapshot.child("display_name").value.toString()
                 val status = dataSnapshot.child("status").value.toString()
-                val image = dataSnapshot.child("image").value.toString()
+                val image = "https://api.adorable.io/avatars/260/$status.png"
 
                 profileName.text = displayName
                 profileStatus.text = status
+
+                Picasso.with(this@ProfileActivity)
+                        .load(image)
+                        .placeholder(R.drawable.profile_img)
+                        .into(profilePicture)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.johanna.chatapp.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
@@ -25,12 +27,16 @@ class SettingsActivity : AppCompatActivity() {
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                             val userDisplayName = dataSnapshot.child("display_name").value
-                            val userImage = dataSnapshot.child("image").value
                             val userStatusData = dataSnapshot.child("status").value
-                            val userThumbImage = dataSnapshot.child("thumb_image").value
+                            val userThumbImage = "https://api.adorable.io/avatars/145/$userStatusData.png"
 
                             settingsStatus.text = userStatusData.toString()
                             settingsDisplayName.text = userDisplayName.toString()
+
+                            Picasso.with(this@SettingsActivity)
+                                    .load(userThumbImage)
+                                    .placeholder(R.drawable.profile_img)
+                                    .into(settingsProfileImage)
                         }
 
                         override fun onCancelled(dataErrorSnapshot: DatabaseError) {
