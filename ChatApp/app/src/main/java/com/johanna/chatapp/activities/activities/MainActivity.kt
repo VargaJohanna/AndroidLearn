@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.johanna.chatapp.R
+import com.johanna.chatapp.activities.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
  class MainActivity : AppCompatActivity() {
