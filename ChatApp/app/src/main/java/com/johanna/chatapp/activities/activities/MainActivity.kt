@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.johanna.chatapp.R
 import com.johanna.chatapp.activities.login.LoginActivity
+import com.johanna.chatapp.activities.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
  class MainActivity : AppCompatActivity() {
@@ -29,7 +30,7 @@ import kotlinx.android.synthetic.main.activity_main.*
         }
 
         createAccountButton.setOnClickListener{
-            startActivity(Intent(this, CreateAccountActivity::class.java))
+            startActivity(Intent(this, RegistrationActivity::class.java))
         }
 
         loginButton.setOnClickListener {
