@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -17,7 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 import android.view.LayoutInflater
 import com.google.firebase.database.Query
 import com.johanna.chatapp.activities.activities.ChatActivity
-import com.johanna.chatapp.activities.activities.ProfileActivity
+import com.johanna.chatapp.activities.profile.ProfileActivity
 import com.squareup.picasso.Picasso
 
 
