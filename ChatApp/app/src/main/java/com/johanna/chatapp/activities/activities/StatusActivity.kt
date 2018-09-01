@@ -44,7 +44,7 @@ class StatusActivity : AppCompatActivity() {
                             .addOnCompleteListener { task: Task<Void> ->
                                 if (task.isSuccessful) {
                                     Toast.makeText(this, "Status updated", Toast.LENGTH_SHORT).show()
-                                    startActivity(Intent(this, SettingsActivity::class.java))
+                                    finish()
                                 } else {
                                     Toast.makeText(this, "Status not updated", Toast.LENGTH_SHORT).show()
                                 }

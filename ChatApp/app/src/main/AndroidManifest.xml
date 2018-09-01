@@ -25,12 +25,12 @@
         <activity android:name=".activities.activities.LoginActivity" />
         <activity android:name=".activities.activities.CreateAccountActivity" />
         <activity android:name=".activities.activities.DashboardActivity" />
-        <activity android:name=".activities.activities.SettingsActivity" />
+        <activity android:name=".activities.activities.SettingsActivity"/>
         <activity android:name=".activities.activities.StatusActivity" />
-        <activity android:name=".activities.activities.ProfileActivity"
-            android:parentActivityName=".activities.activities.DashboardActivity"/>
-        <activity android:name=".activities.activities.ChatActivity"
-            android:parentActivityName=".activities.activities.DashboardActivity"></activity>
+        <activity android:name=".activities.activities.ProfileActivity"/>
+        <activity
+            android:name=".activities.activities.ChatActivity"
+            android:parentActivityName=".activities.activities.DashboardActivity" />
     </application>
 
 </manifest>

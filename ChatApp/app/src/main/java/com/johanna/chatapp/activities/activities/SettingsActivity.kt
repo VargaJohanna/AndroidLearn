@@ -3,6 +3,7 @@ package com.johanna.chatapp.activities.activities
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.johanna.chatapp.R
@@ -19,6 +20,9 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        supportActionBar?.title = "Settings"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         if (userId != null) {
@@ -49,6 +53,11 @@ class SettingsActivity : AppCompatActivity() {
             intent.putExtra(StatusActivity.status, settingsStatus.text.toString().trim())
             startActivity(intent)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        finish()
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

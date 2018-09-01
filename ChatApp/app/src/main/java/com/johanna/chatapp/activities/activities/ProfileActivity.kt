@@ -3,6 +3,7 @@ package com.johanna.chatapp.activities.activities
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -33,6 +34,10 @@ class ProfileActivity : AppCompatActivity() {
         setUpProfile(userIdValue)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        finish()
+        return super.onOptionsItemSelected(item)
+    }
     private fun setUpProfile(userId: String) {
         mUserDatabase.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {

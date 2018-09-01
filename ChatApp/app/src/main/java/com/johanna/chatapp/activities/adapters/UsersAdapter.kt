@@ -18,6 +18,7 @@ import android.view.LayoutInflater
 import com.google.firebase.database.Query
 import com.johanna.chatapp.activities.activities.ChatActivity
 import com.johanna.chatapp.activities.activities.ProfileActivity
+import com.squareup.picasso.Picasso
 
 
 class UsersAdapter (
@@ -41,11 +42,15 @@ class UsersAdapter (
             //Set the strings so we can pass in the intent
             userNameText = user.display_name.toString()
             userStatusText = user.status.toString()
-            userProfileImageLink = user.thumb_image.toString()
+            userProfileImageLink = "https://api.adorable.io/avatars/260/$userStatusText.png"
 
             userName.text = userNameText
             userStatus.text = userStatusText
-//            userProfileImage = userProfileImageLink
+
+            Picasso.with(userProfileImage.context)
+                    .load(userProfileImageLink)
+                    .placeholder(R.drawable.profile_img)
+                    .into(userProfileImage)
         }
     }
 

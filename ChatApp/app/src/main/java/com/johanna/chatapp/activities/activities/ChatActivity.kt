@@ -23,7 +23,6 @@ import com.johanna.chatapp.activities.models.FriendlyMessage
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_chat.*
-import java.lang.System.load
 
 class ChatActivity : AppCompatActivity() {
     companion object {
@@ -38,6 +37,9 @@ class ChatActivity : AppCompatActivity() {
     val mFirebaseDatabaseRef = FirebaseDatabase.getInstance().reference
     lateinit var otherUserId: String
     lateinit var mFirebaseAdapter: FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>
+    val currentUser = mFireBaseUser?.uid
+    lateinit var currentUserName:String
+    lateinit var currentUserStatus:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,15 +50,16 @@ class ChatActivity : AppCompatActivity() {
         mLinearLayoutManager.stackFromEnd = true
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
+        val child = mFirebaseDatabaseRef.child("Users").child(currentUser!!).child("messages").child(otherUserId)
+
         mFirebaseAdapter = object : FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(
                 FirebaseRecyclerOptions.Builder<FriendlyMessage>()
-                        .setQuery(mFirebaseDatabaseRef.child("messages"), FriendlyMessage::class.java)
+                        .setQuery(child, FriendlyMessage::class.java)
                         .build()) {
             override fun onBindViewHolder(holder: MessageViewHolder, position: Int, friendlyMessage: FriendlyMessage) {
 
                 holder.bindView(friendlyMessage)
-
-                val currentUser = mFireBaseUser?.uid
                 val isMe: Boolean = friendlyMessage.id.equals(currentUser)
 
                 if (isMe) {
@@ -67,7 +70,7 @@ class ChatActivity : AppCompatActivity() {
                     holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
                     holder.messengerNameTextView.text = getString(R.string.myMessage)
 
-                    val imageUrl = "https://api.adorable.io/avatars/145/$currentUser.png"
+                    val imageUrl = "https://api.adorable.io/avatars/145/$currentUserStatus.png"
                     Picasso.with(holder.profileImageViewRight.context)
                             .load(imageUrl)
                             .placeholder(R.drawable.profile_img)
@@ -81,16 +84,15 @@ class ChatActivity : AppCompatActivity() {
                     holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
 
                     //Get name from database (and image would be here too)
-                    mFirebaseDatabaseRef.child("Users").child(otherUserId)
+                    mFirebaseDatabaseRef.child("Users").child(otherUserId).child("messages")
                             .addValueEventListener(object : ValueEventListener {
                                 override fun onCancelled(data: DatabaseError) {
                                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                                 }
 
                                 override fun onDataChange(data: DataSnapshot) {
-                                    val displayName = data.child("display_name").value.toString()
                                     val imageUrl = "https://api.adorable.io/avatars/145/$otherUserStatus.png"
-                                    holder.messengerNameTextView.text = "$displayName's message:"
+                                    holder.messengerNameTextView.text = "${friendlyMessage.name}'s message:"
 
                                     Picasso.with(holder.profileImageViewLeft.context)
                                             .load(imageUrl)
@@ -112,19 +114,32 @@ class ChatActivity : AppCompatActivity() {
 
         messageRecyclerView.layoutManager = mLinearLayoutManager
         messageRecyclerView.adapter = mFirebaseAdapter
+        sendButton.isEnabled = false
+        mFirebaseDatabaseRef.child("Users").child(currentUser)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(data: DatabaseError) {
+                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    }
+
+                    override fun onDataChange(data: DataSnapshot) {
+                        currentUserName = data.child("display_name").value.toString()
+                        currentUserStatus = data.child("status").value.toString()
+                        sendButton.isEnabled = true
+                    }
+                })
 
         sendButton.setOnClickListener {
-            if (!intent.extras.get(userName).toString().equals("")) {
-                val currentUserName = intent.extras.get(userName)
-                val mCurrentUserId = mFireBaseUser?.uid
-
-                val friendlyMessage = FriendlyMessage(mCurrentUserId.toString(),
+            if (intent.extras.get(userName).toString().equals("").not()) {
+                val friendlyMessage = FriendlyMessage(
+                        currentUser,
                         messageEdit.text.toString().trim(),
-                        currentUserName.toString().trim())
+                        currentUserName.trim())
 
-                mFirebaseDatabaseRef.child("messages").push().setValue(friendlyMessage)
+                mFirebaseDatabaseRef.child("Users").child(currentUser).child("messages").child(otherUserId).push().setValue(friendlyMessage)
+                mFirebaseDatabaseRef.child("Users").child(otherUserId).child("messages").child(currentUser).push().setValue(friendlyMessage)
+
                 messageEdit.setText("")
-                val inputManager:InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                val inputManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 inputManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.SHOW_FORCED)
             }
         }
@@ -155,7 +170,6 @@ class ChatActivity : AppCompatActivity() {
 
             messageTextView.text = friendlyMessage.text
             messengerNameTextView.text = friendlyMessage.name
-
         }
     }
 
