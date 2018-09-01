@@ -14,7 +14,6 @@
         android:layout_marginEnd="42dp"
         android:layout_marginStart="42dp"
         android:layout_marginTop="50dp"
-        android:background="@color/colorAccent"
         app:cardCornerRadius="13dp"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
@@ -26,7 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"
+            android:background="@color/logo_green"
             android:orientation="vertical">
 
             <ImageView
@@ -41,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:text="@string/create_new_account"
-                android:textColor="#fff"
+                android:textColor="#f0f7f4"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -62,7 +61,7 @@
                     android:textColor="#f0f7f4"
                     android:text="Medve"
                     android:textSize="14sp"
-                    android:textCursorDrawable="@drawable/bg_input_cursor"
+                    android:textCursorDrawable="@drawable/bg_input_cursor_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -76,7 +75,7 @@
                     android:text="test@email.com"
                     android:textColor="#f0f7f4"
                     android:textSize="14sp"
-                    android:textCursorDrawable="@drawable/bg_input_cursor"
+                    android:textCursorDrawable="@drawable/bg_input_cursor_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -102,7 +101,7 @@
                         android:id="@+id/accountCreateButtonEt"
                         android:background="@drawable/bt_shape"
                         android:stateListAnimator="@drawable/state_list_animator_z"
-                        android:textColor="#d3d3d3"
+                        android:textColor="#f0f7f4"
                         android:text="@string/create_new_account"
                         android:layout_width="wrap_content"
                         android:padding="8dp"

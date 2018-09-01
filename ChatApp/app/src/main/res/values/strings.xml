@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ChatApp</string>
     <string name="welcome_text">Welcome to My Chat App</string>
-    <string name="have_account_text">Already have account</string>
-    <string name="need_account_text">Need a new account</string>
+    <string name="have_account_text">Login</string>
+    <string name="need_account_text">Register</string>
     <string name="chat_logo">Chat logo</string>
     <string name="loginTextCard">Login</string>
     <string name="enter_password">Enter password</string>
