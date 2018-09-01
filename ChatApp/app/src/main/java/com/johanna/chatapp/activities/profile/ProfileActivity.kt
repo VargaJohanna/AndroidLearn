@@ -12,13 +12,14 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         const val userId: String = "id"
     }
     private val profilePresenter = ProfilePresenter(this)
-    val userIdValue = intent.extras.get(userId).toString()
+    lateinit var userIdValue: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         supportActionBar?.title = "Profile"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        userIdValue = intent.extras.get(userId).toString()
         profilePresenter.setUpProfile()
     }
 

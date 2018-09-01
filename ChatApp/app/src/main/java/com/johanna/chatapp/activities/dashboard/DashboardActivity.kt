@@ -10,7 +10,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.johanna.chatapp.R
 import com.johanna.chatapp.activities.main.MainActivity
-import com.johanna.chatapp.activities.activities.SettingsActivity
+import com.johanna.chatapp.activities.settings.SettingsActivity
 import com.johanna.chatapp.activities.adapters.SectionPageAdapter
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
