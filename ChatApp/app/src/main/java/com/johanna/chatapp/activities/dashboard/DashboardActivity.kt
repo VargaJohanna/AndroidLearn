@@ -1,4 +1,4 @@
-package com.johanna.chatapp.activities.activities
+package com.johanna.chatapp.activities.dashboard
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,6 +9,8 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.johanna.chatapp.R
+import com.johanna.chatapp.activities.main.MainActivity
+import com.johanna.chatapp.activities.activities.SettingsActivity
 import com.johanna.chatapp.activities.adapters.SectionPageAdapter
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
@@ -50,7 +52,6 @@ class DashboardActivity : AppCompatActivity() {
             }
             if(item.itemId.equals(R.id.settingsMenu)) {
                 startActivity(Intent(this, SettingsActivity::class.java))
-
             }
         }
         return true

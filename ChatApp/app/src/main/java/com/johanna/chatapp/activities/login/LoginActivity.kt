@@ -7,7 +7,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import com.johanna.chatapp.R
-import com.johanna.chatapp.activities.activities.DashboardActivity
+import com.johanna.chatapp.activities.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), LoginView {

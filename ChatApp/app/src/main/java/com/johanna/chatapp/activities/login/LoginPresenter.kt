@@ -19,5 +19,4 @@ class LoginPresenter constructor(private val loginView: LoginView) {
             loginView.loginFail()
         }
     }
-
 }
