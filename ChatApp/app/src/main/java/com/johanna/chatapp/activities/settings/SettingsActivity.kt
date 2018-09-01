@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.johanna.chatapp.R
-import com.johanna.chatapp.activities.activities.StatusActivity
+import com.johanna.chatapp.activities.status.StatusActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_settings.*
 

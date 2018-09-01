@@ -26,7 +26,7 @@
         <activity android:name=".activities.registration.RegistrationActivity" />
         <activity android:name=".activities.dashboard.DashboardActivity" />
         <activity android:name=".activities.settings.SettingsActivity"/>
-        <activity android:name=".activities.activities.StatusActivity" />
+        <activity android:name=".activities.status.StatusActivity" />
         <activity android:name=".activities.profile.ProfileActivity"/>
         <activity
             android:name=".activities.activities.ChatActivity"
