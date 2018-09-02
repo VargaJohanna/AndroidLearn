@@ -7,7 +7,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.johanna.chatapp.Database
-import com.johanna.chatapp.models.FriendlyMessage
 
 class ChatPresenter constructor(private val chatView: ChatView) {
     private val databaseReference = FirebaseDatabase.getInstance().reference
@@ -26,7 +25,7 @@ class ChatPresenter constructor(private val chatView: ChatView) {
                     }
 
                     override fun onDataChange(data: DataSnapshot) {
-                        currentUserName = data.child("display_name").value.toString()
+                        currentUserName = data.child(Database.displayNameNode).value.toString()
                         val currentUserStatus = data.child("status").value.toString()
                         chatView.enableSendButton()
                         userIsReady(currentUserStatus, otherUserId, otherUserStatus, context)

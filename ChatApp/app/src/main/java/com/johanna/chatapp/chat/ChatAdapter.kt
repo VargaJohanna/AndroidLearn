@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.johanna.chatapp.Database
 import com.johanna.chatapp.R
-import com.johanna.chatapp.models.FriendlyMessage
 import com.squareup.picasso.Picasso
 
 class ChatAdapter (

@@ -14,7 +14,7 @@ class ProfilePresenter constructor(private val profileActivity: ProfileActivity)
     fun setUpProfile() {
         userReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val displayName = dataSnapshot.child("display_name").value.toString()
+                val displayName = dataSnapshot.child(Database.displayNameNode).value.toString()
                 val status = dataSnapshot.child("status").value.toString()
                 val image = "https://api.adorable.io/avatars/260/$status.png"
 

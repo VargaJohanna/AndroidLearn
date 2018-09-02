@@ -17,7 +17,7 @@ class SettingsPresenter constructor(private val settingsView: SettingsView) {
                     .child(userId)
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
-                            val userDisplayName = dataSnapshot.child("display_name").value.toString()
+                            val userDisplayName = dataSnapshot.child(Database.displayNameNode).value.toString()
                             val userStatusData = dataSnapshot.child("status").value.toString()
                             val userThumbImage = "https://api.adorable.io/avatars/145/$userStatusData.png"
                             settingsView.updateUserDetails(userDisplayName, userStatusData, userThumbImage)

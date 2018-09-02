@@ -10,7 +10,6 @@ import android.widget.TextView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.johanna.chatapp.R
-import com.johanna.chatapp.models.User
 import de.hdodenhof.circleimageview.CircleImageView
 import android.view.LayoutInflater
 import com.google.firebase.database.Query
@@ -74,7 +73,7 @@ class UsersAdapter(
             val userStatus = itemView.findViewById<TextView>(R.id.userStatus)
             val userProfileImage = itemView.findViewById<CircleImageView>(R.id.userProfile)
 
-            userNameText = user.display_name.toString()
+            userNameText = user.displayName.toString()
             userStatusText = user.status.toString()
             userProfileImageLink = "https://api.adorable.io/avatars/260/$userStatusText.png"
 

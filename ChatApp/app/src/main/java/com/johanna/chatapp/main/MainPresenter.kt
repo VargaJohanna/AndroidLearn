@@ -16,11 +16,11 @@ class MainPresenter constructor(private val mainView: MainView){
         }
     }
 
-    fun startAuthStateListener() {
+    fun onStart() {
         firebaseAuth.addAuthStateListener(authStateListener)
     }
 
-    fun stopAuthStateListener() {
+    fun onStop() {
         firebaseAuth.removeAuthStateListener(authStateListener)
     }
 

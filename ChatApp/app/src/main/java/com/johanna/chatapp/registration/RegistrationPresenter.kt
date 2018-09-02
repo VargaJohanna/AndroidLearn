@@ -26,7 +26,7 @@ class RegistrationPresenter constructor(private val registrationView: Registrati
 
     private fun updateDatabase(displayName: String, databaseReference: DatabaseReference) {
         val userObject = HashMap<String, String>()
-        userObject.put("display_name", displayName)
+        userObject.put(Database.displayNameNode, displayName)
         userObject.put("status", "Hello")
         userObject.put("image", "default")
         userObject.put("thumb_image", "default")

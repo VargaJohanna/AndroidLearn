@@ -30,12 +30,12 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun onStart() {
         super.onStart()
-        mainPresenter.startAuthStateListener()
+        mainPresenter.onStart()
     }
 
     override fun onStop() {
         super.onStop()
-        mainPresenter.stopAuthStateListener()
+        mainPresenter.onStop()
     }
 
     override fun onUserLoggedIn() {
