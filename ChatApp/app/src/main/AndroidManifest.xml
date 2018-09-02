@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.main.MainActivity">
+        <activity android:name="com.johanna.chatapp.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,15 +22,15 @@
         <!-- <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/> -->
         android:theme="@style/Base.Theme.AppCompat"/>
         <!-- optional (needed if default theme has no action bar) -->
-        <activity android:name=".activities.login.LoginActivity" />
-        <activity android:name=".activities.registration.RegistrationActivity" />
-        <activity android:name=".activities.dashboard.DashboardActivity" />
-        <activity android:name=".activities.settings.SettingsActivity"/>
-        <activity android:name=".activities.status.StatusActivity" />
-        <activity android:name=".activities.profile.ProfileActivity"/>
+        <activity android:name="com.johanna.chatapp.login.LoginActivity" />
+        <activity android:name="com.johanna.chatapp.registration.RegistrationActivity" />
+        <activity android:name="com.johanna.chatapp.dashboard.DashboardActivity" />
+        <activity android:name="com.johanna.chatapp.settings.SettingsActivity"/>
+        <activity android:name="com.johanna.chatapp.status.StatusActivity" />
+        <activity android:name="com.johanna.chatapp.profile.ProfileActivity"/>
         <activity
-            android:name=".activities.chat.ChatActivity"
-            android:parentActivityName=".activities.dashboard.DashboardActivity" />
+            android:name="com.johanna.chatapp.chat.ChatActivity"
+            android:parentActivityName="com.johanna.chatapp.dashboard.DashboardActivity" />
     </application>
 
 </manifest>
