@@ -30,9 +30,10 @@
     <string name="send_message">Send Message</string>
     <string name="message">Message</string>
     <string name="my_message">My message:</string>
-    <string name="open_user_profile">\"Open User Profile\"</string>
+    <string name="open_user_profile">Open User Profile</string>
     <string name="choose_what_to_do">Choose what to do!</string>
     <string name="dashboard">Dashboard</string>
     <string name="login_failed_message">Sorry, login failed</string>
     <string name="login_error_message">Error while log in</string>
+    <string name="profile_tab">Profile</string>
 </resources>
