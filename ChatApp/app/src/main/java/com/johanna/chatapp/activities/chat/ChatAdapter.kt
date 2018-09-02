@@ -1,5 +1,6 @@
 package com.johanna.chatapp.activities.chat
 
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -57,7 +58,7 @@ class ChatAdapter (
             databaseReference.child("Users").child(otherUserId).child("messages")
                     .addValueEventListener(object : ValueEventListener {
                         override fun onCancelled(data: DatabaseError) {
-                            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                            Log.e("Error", data.message)
                         }
 
                         override fun onDataChange(data: DataSnapshot) {

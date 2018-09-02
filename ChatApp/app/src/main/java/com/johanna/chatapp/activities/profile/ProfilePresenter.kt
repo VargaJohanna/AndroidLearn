@@ -1,5 +1,6 @@
 package com.johanna.chatapp.activities.profile
 
+import android.util.Log
 import com.google.firebase.database.*
 
 class ProfilePresenter constructor(private val profileActivity: ProfileActivity) {
@@ -20,7 +21,8 @@ class ProfilePresenter constructor(private val profileActivity: ProfileActivity)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.e("Error", databaseError.message)
+
             }
         })
     }

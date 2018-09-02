@@ -1,6 +1,7 @@
 package com.johanna.chatapp.activities.chat
 
 import android.content.Context
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -31,7 +32,7 @@ class ChatPresenter constructor(private val chatView: ChatView) {
         databaseReference.child("Users").child(currentUser)
                 .addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(data: DatabaseError) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                        Log.e("Error", data.message)
                     }
 
                     override fun onDataChange(data: DataSnapshot) {
