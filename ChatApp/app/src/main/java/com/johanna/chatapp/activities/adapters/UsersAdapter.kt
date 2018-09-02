@@ -15,7 +15,7 @@ import com.johanna.chatapp.activities.models.User
 import de.hdodenhof.circleimageview.CircleImageView
 import android.view.LayoutInflater
 import com.google.firebase.database.Query
-import com.johanna.chatapp.activities.activities.ChatActivity
+import com.johanna.chatapp.activities.chat.ChatActivity
 import com.johanna.chatapp.activities.profile.ProfileActivity
 import com.squareup.picasso.Picasso
 
