@@ -10,10 +10,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity(), SettingsView {
-    companion object {
-        const val GALLERY_ID = 1
-    }
-
     val settingsPresenter = SettingsPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,5 +45,9 @@ class SettingsActivity : AppCompatActivity(), SettingsView {
                 .load(userThumbImage)
                 .placeholder(R.drawable.profile_img)
                 .into(settingsProfileImage)
+    }
+
+    companion object {
+        const val GALLERY_ID = 1
     }
 }

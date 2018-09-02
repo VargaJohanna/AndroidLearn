@@ -8,9 +8,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity(), ProfileView {
-    companion object {
-        const val userId: String = "id"
-    }
     private val profilePresenter = ProfilePresenter(this)
     lateinit var userIdValue: String
 
@@ -36,5 +33,9 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
                 .load(image)
                 .placeholder(R.drawable.profile_img)
                 .into(profilePicture)
+    }
+
+    companion object {
+        const val userId: String = "id"
     }
 }

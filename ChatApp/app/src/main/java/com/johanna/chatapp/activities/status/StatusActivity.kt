@@ -7,11 +7,6 @@ import com.johanna.chatapp.R
 import kotlinx.android.synthetic.main.activity_status.*
 
 class StatusActivity : AppCompatActivity(), StatusView {
-
-    companion object {
-        const val status = "default"
-    }
-
     private val statusPresenter = StatusPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,5 +32,9 @@ class StatusActivity : AppCompatActivity(), StatusView {
 
     override fun statusUpdateFail() {
         Toast.makeText(this, "Status not updated", Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        const val status = "default"
     }
 }
