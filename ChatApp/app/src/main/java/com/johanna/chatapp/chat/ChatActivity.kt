@@ -71,7 +71,7 @@ class ChatActivity : AppCompatActivity(), ChatView {
         sendButton.isEnabled = true
     }
 
-    override fun setMessgaRecyclerView(chatAdapter: ChatAdapter) {
+    override fun setMessageRecyclerView(chatAdapter: ChatAdapter) {
         messageRecyclerView.adapter = chatAdapter
     }
 
@@ -83,7 +83,7 @@ class ChatActivity : AppCompatActivity(), ChatView {
         var chatAdapter: ChatAdapter? = null
         if (chatAdapter == null) {
             chatAdapter = ChatAdapter(currentUser, currentUserStatus, otherUserId, otherUserStatus, context)
-            setMessgaRecyclerView(chatAdapter)
+            setMessageRecyclerView(chatAdapter)
             chatAdapter.startListening()
         }
     }

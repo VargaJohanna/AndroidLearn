@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.johanna.chatapp.Database
 import com.johanna.chatapp.R
 import com.johanna.chatapp.models.FriendlyMessage
 import com.squareup.picasso.Picasso
@@ -24,9 +25,9 @@ class ChatAdapter (
     : FirebaseRecyclerAdapter<FriendlyMessage, ChatActivity.MessageViewHolder>(
         FirebaseRecyclerOptions.Builder<FriendlyMessage>()
                 .setQuery(FirebaseDatabase.getInstance().reference
-                        .child("Users")
+                        .child(Database.usersNode)
                         .child(currentUserId)
-                        .child("messages")
+                        .child(Database.messagesNode)
                         .child(otherUserId)
                         , FriendlyMessage::class.java)
                 .build()) {
@@ -55,7 +56,7 @@ class ChatAdapter (
             holder.messageTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
             holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
 
-            databaseReference.child("Users").child(otherUserId).child("messages")
+            databaseReference.child(Database.usersNode).child(otherUserId).child(Database.messagesNode)
                     .addValueEventListener(object : ValueEventListener {
                         override fun onCancelled(data: DatabaseError) {
                             Log.e("Error", data.message)

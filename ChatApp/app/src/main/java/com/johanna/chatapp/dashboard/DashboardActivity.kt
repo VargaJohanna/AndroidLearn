@@ -18,14 +18,14 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         val supportActionBar = supportActionBar
-        if (supportActionBar != null) supportActionBar.title = "Dashboard"
+        if (supportActionBar != null) supportActionBar.title = this.getString(R.string.dashboard)
 
         val sectionAdapter = SectionPageAdapter(supportFragmentManager)
         dashboardViewPager.adapter = sectionAdapter
         tabView.setupWithViewPager(dashboardViewPager)
         tabView.setTabTextColors(Color.WHITE, R.color.abc_primary_text_material_dark)
 
-        if (intent.extras != null) {
+        intent.extras?.let{
             val userName = intent.extras.get(name)
             Toast.makeText(this, userName.toString(), Toast.LENGTH_SHORT).show()
         }
@@ -40,12 +40,12 @@ class DashboardActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         super.onOptionsItemSelected(item)
         if (item != null) {
-            if (item.itemId.equals(R.id.logoutMenu)) {
+            if (item.itemId == (R.id.logoutMenu)) {
                 FirebaseAuth.getInstance().signOut()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
-            if (item.itemId.equals(R.id.settingsMenu)) {
+            if (item.itemId == (R.id.settingsMenu)) {
                 startActivity(Intent(this, SettingsActivity::class.java))
             }
         }

@@ -32,4 +32,5 @@
     <string name="my_message">My message:</string>
     <string name="open_user_profile">\"Open User Profile\"</string>
     <string name="choose_what_to_do">Choose what to do!</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

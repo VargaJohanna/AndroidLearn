@@ -3,6 +3,7 @@ package com.johanna.chatapp.status
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.johanna.chatapp.Database
 
 class StatusPresenter constructor(private val statusActivity: StatusActivity) {
     fun fetchUserDetails(currentStatus: String) {
@@ -10,7 +11,7 @@ class StatusPresenter constructor(private val statusActivity: StatusActivity) {
 
         if (userUid != null) {
             val userReference = FirebaseDatabase.getInstance().reference
-                    .child("Users")
+                    .child(Database.usersNode)
                     .child(userUid)
 
             userReference!!.child("status")

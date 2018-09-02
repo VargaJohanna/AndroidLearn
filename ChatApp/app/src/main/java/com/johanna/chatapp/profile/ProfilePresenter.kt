@@ -2,11 +2,12 @@ package com.johanna.chatapp.profile
 
 import android.util.Log
 import com.google.firebase.database.*
+import com.johanna.chatapp.Database
 
 class ProfilePresenter constructor(private val profileActivity: ProfileActivity) {
     private val userReference: DatabaseReference by lazy {
         FirebaseDatabase.getInstance().reference
-                .child("Users")
+                .child(Database.usersNode)
                 .child(profileActivity.userIdValue)
     }
 

@@ -6,6 +6,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.johanna.chatapp.Database
 import com.johanna.chatapp.models.FriendlyMessage
 
 class ChatPresenter constructor(private val chatView: ChatView) {
@@ -18,7 +19,7 @@ class ChatPresenter constructor(private val chatView: ChatView) {
     }
 
     fun fetchUserDetails(otherUserId: String, otherUserStatus: String, context: ChatActivity) {
-        databaseReference.child("Users").child(currentUserId)
+        databaseReference.child(Database.usersNode).child(currentUserId)
                 .addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(data: DatabaseError) {
                         Log.e("Error", data.message)
@@ -39,7 +40,7 @@ class ChatPresenter constructor(private val chatView: ChatView) {
                 chatView.getMessage(),
                 currentUserName.trim())
 
-        databaseReference.child("Users").child(currentUserId).child("messages").child(otherUserId).push().setValue(friendlyMessage)
-        databaseReference.child("Users").child(otherUserId).child("messages").child(currentUserId).push().setValue(friendlyMessage)
+        databaseReference.child(Database.usersNode).child(currentUserId).child(Database.messagesNode).child(otherUserId).push().setValue(friendlyMessage)
+        databaseReference.child(Database.usersNode).child(otherUserId).child(Database.messagesNode).child(currentUserId).push().setValue(friendlyMessage)
     }
 }

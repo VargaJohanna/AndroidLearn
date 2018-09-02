@@ -5,6 +5,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.johanna.chatapp.Database
 
 class RegistrationPresenter constructor(private val registrationView: RegistrationView) {
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -14,7 +15,7 @@ class RegistrationPresenter constructor(private val registrationView: Registrati
                 .addOnCompleteListener { task: Task<AuthResult> ->
                     if (task.isSuccessful) {
                         val userId = firebaseAuth.currentUser?.uid.toString()
-                        val databaseReference = FirebaseDatabase.getInstance().reference.child("Users").child(userId)
+                        val databaseReference = FirebaseDatabase.getInstance().reference.child(Database.usersNode).child(userId)
                         updateDatabase(displayName, databaseReference)
                     }
                 }
