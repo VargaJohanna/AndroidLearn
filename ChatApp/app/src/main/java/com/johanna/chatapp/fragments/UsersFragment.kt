@@ -14,9 +14,6 @@ import com.johanna.chatapp.R
 import com.johanna.chatapp.settings.UsersAdapter
 import kotlinx.android.synthetic.main.fragment_users.*
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class UsersFragment : Fragment() {
     private val database = FirebaseDatabase.getInstance().reference.child(Database.usersNode).limitToFirst(50)
     private val usersAdapter: UsersAdapter by lazy { UsersAdapter(database, requireContext()) }
