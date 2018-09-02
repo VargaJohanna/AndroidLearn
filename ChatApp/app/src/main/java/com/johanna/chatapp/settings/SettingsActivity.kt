@@ -16,7 +16,7 @@ class SettingsActivity : AppCompatActivity(), SettingsView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        supportActionBar?.title = "Settings"
+        supportActionBar?.title = this.getString(R.string.settings_tab)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         settingsPresenter.fetchUSerDetails()

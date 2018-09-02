@@ -26,7 +26,7 @@ class RegistrationActivity : AppCompatActivity(), RegistrationView {
                     && !TextUtils.isEmpty(password)) {
                 registrationPresenter.createAccount(email, password, displayName)
             } else {
-                Toast.makeText(this, "Please fill out the fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.fill_fields, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -36,11 +36,11 @@ class RegistrationActivity : AppCompatActivity(), RegistrationView {
     }
 
     override fun updateDatabaseFail() {
-        Toast.makeText(this, "User not created!", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, this.getString(R.string.user_not_created), Toast.LENGTH_LONG).show()
     }
 
     override fun updateDatabaseSuccess(displayName: String) {
-        Toast.makeText(this, "User created!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.user_created, Toast.LENGTH_SHORT).show()
         val dashboardActivity = Intent(this, DashboardActivity::class.java)
         dashboardActivity.putExtra(DashboardActivity.name, displayName)
         startActivity(dashboardActivity)

@@ -36,4 +36,8 @@
     <string name="login_failed_message">Sorry, login failed</string>
     <string name="login_error_message">Error while log in</string>
     <string name="profile_tab">Profile</string>
+    <string name="user_not_created">User not created!</string>
+    <string name="user_created">User created!</string>
+    <string name="fill_fields">Please fill out the fields</string>
+    <string name="settings_tab">Settings</string>
 </resources>

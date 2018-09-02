@@ -4,18 +4,18 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.johanna.chatapp.R
-import de.hdodenhof.circleimageview.CircleImageView
-import android.view.LayoutInflater
 import com.google.firebase.database.Query
+import com.johanna.chatapp.R
 import com.johanna.chatapp.chat.ChatActivity
 import com.johanna.chatapp.profile.ProfileActivity
 import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
 
 class UsersAdapter(
         databaseQuery: Query,
