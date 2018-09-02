@@ -54,7 +54,7 @@
                 <EditText
                     android:id="@+id/accountDisplayNameEt"
                     android:background="@drawable/selector_bg_edit_2"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapSentences"
                     android:hint="@string/display_name"
                     android:paddingBottom="10dp"
                     android:paddingTop="4dp"

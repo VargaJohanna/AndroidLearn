@@ -9,9 +9,9 @@ import com.google.firebase.database.ValueEventListener
 import com.johanna.chatapp.Database
 
 class SettingsPresenter constructor(private val settingsView: SettingsView) {
+    private val userId = FirebaseAuth.getInstance().currentUser?.uid
 
     fun fetchUSerDetails() {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
         if (userId != null) {
             FirebaseDatabase.getInstance().reference.child(Database.usersNode)
                     .child(userId)
@@ -19,7 +19,7 @@ class SettingsPresenter constructor(private val settingsView: SettingsView) {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                             val userDisplayName = dataSnapshot.child(Database.displayNameNode).value.toString()
                             val userStatusData = dataSnapshot.child("status").value.toString()
-                            val userThumbImage = "https://api.adorable.io/avatars/145/$userStatusData.png"
+                            val userThumbImage = "https://api.adorable.io/avatars/180/$userStatusData.png"
                             settingsView.updateUserDetails(userDisplayName, userStatusData, userThumbImage)
                         }
 
