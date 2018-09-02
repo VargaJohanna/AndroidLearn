@@ -8,25 +8,15 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.johanna.chatapp.R
 import com.johanna.chatapp.activities.models.FriendlyMessage
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_chat.*
 
-class ChatActivity : AppCompatActivity() {
-
-    private val firebaseUser = FirebaseAuth.getInstance().currentUser
+class ChatActivity : AppCompatActivity(), ChatView {
+    private val chatPresenter = ChatPresenter(this)
     private val linearLayoutManager = LinearLayoutManager(this)
-    private val databaseReference = FirebaseDatabase.getInstance().reference
-    private val currentUser = firebaseUser?.uid.toString()
-    lateinit var currentUserName: String
-    lateinit var currentUserStatus: String
-    var chatAdapter: ChatAdapter? = null
+    private var chatAdapter: ChatAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,42 +29,15 @@ class ChatActivity : AppCompatActivity() {
 
         messageRecyclerView.layoutManager = linearLayoutManager
         sendButton.isEnabled = false
-        databaseReference.child("Users").child(currentUser)
-                .addValueEventListener(object : ValueEventListener {
-                    override fun onCancelled(data: DatabaseError) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
+        chatPresenter.fetchUserDetails(otherUserId, otherUserStatus, this)
 
-                    override fun onDataChange(data: DataSnapshot) {
-                        currentUserName = data.child("display_name").value.toString()
-                        currentUserStatus = data.child("status").value.toString()
-                        sendButton.isEnabled = true
-                        userIsReady(currentUserStatus, otherUserId, otherUserStatus)
-                    }
-                })
 
         sendButton.setOnClickListener {
             if (intent.extras.get(userName).toString().equals("").not()) {
-                val friendlyMessage = FriendlyMessage(
-                        currentUser,
-                        messageEdit.text.toString().trim(),
-                        currentUserName.trim())
-
-                databaseReference.child("Users").child(currentUser).child("messages").child(otherUserId).push().setValue(friendlyMessage)
-                databaseReference.child("Users").child(otherUserId).child("messages").child(currentUser).push().setValue(friendlyMessage)
-
+                chatPresenter.saveMessages(otherUserId)
                 messageEdit.setText("")
-                val inputManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                inputManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.SHOW_FORCED)
+                hideKeyboard()
             }
-        }
-    }
-
-    private fun userIsReady(currentUserStatus: String, otherUserId: String, otherUserStatus: String) {
-        if (chatAdapter == null) {
-            chatAdapter = ChatAdapter(currentUser, currentUserStatus, otherUserId, otherUserStatus, this)
-            messageRecyclerView.adapter = chatAdapter
-            chatAdapter?.startListening()
         }
     }
 
@@ -103,6 +66,23 @@ class ChatActivity : AppCompatActivity() {
             messageTextView.text = friendlyMessage.text
             messengerNameTextView.text = friendlyMessage.name
         }
+    }
+
+    override fun enableSendButton() {
+        sendButton.isEnabled = true
+    }
+
+    override fun setMessgaRecyclerView(chatAdapter: ChatAdapter) {
+        messageRecyclerView.adapter = chatAdapter
+    }
+
+    fun hideKeyboard() {
+        val inputManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.SHOW_FORCED)
+    }
+
+    override fun getMessage(): String {
+        return messageEdit.text.toString().trim()
     }
 
     companion object {

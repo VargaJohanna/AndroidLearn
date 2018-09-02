@@ -1,6 +1,5 @@
 package com.johanna.chatapp.activities.chat
 
-import android.content.Context
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -15,12 +14,12 @@ import com.johanna.chatapp.R
 import com.johanna.chatapp.activities.models.FriendlyMessage
 import com.squareup.picasso.Picasso
 
-class ChatAdapter constructor(
+class ChatAdapter (
         private val currentUserId: String,
         private val currentUserStatus: String,
         private val otherUserId: String,
         private val otherUserStatus: String,
-        private val context: Context)
+        private val context: ChatActivity)
     : FirebaseRecyclerAdapter<FriendlyMessage, ChatActivity.MessageViewHolder>(
         FirebaseRecyclerOptions.Builder<FriendlyMessage>()
                 .setQuery(FirebaseDatabase.getInstance().reference
