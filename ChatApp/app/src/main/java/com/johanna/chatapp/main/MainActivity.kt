@@ -10,7 +10,7 @@ import com.johanna.chatapp.login.LoginActivity
 import com.johanna.chatapp.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainView {
 
     private val mainPresenter = MainPresenter(this)
 
@@ -38,12 +38,12 @@ class MainActivity : AppCompatActivity() {
         mainPresenter.stopAuthStateListener()
     }
 
-    fun onUserLoggedIn() {
+    override fun onUserLoggedIn() {
         startActivity(Intent(this, DashboardActivity::class.java))
         finish()
     }
 
-    fun onUserNotLoggedIn() {
+    override fun onUserNotLoggedIn() {
         Toast.makeText(this, "Need to login", Toast.LENGTH_LONG).show()
     }
 }

@@ -26,7 +26,6 @@ class UsersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        userRecyclerView.setHasFixedSize(true)
         userRecyclerView.layoutManager = linearLayoutManager
         userRecyclerView.adapter = usersAdapter
     }

@@ -2,16 +2,16 @@ package com.johanna.chatapp.main
 
 import com.google.firebase.auth.FirebaseAuth
 
-class MainPresenter constructor(private val mainActivity: MainActivity){
+class MainPresenter constructor(private val mainView: MainView){
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    lateinit var authStateListener: FirebaseAuth.AuthStateListener
+    private lateinit var authStateListener: FirebaseAuth.AuthStateListener
 
     fun fetchUserState() {
         authStateListener = FirebaseAuth.AuthStateListener { firebaseAuth: FirebaseAuth ->
             if (firebaseAuth.currentUser != null) {
-                mainActivity.onUserLoggedIn()
+                mainView.onUserLoggedIn()
             } else {
-                mainActivity.onUserNotLoggedIn()
+                mainView.onUserNotLoggedIn()
             }
         }
     }

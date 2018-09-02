@@ -21,10 +21,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
             val email = loginEmailCard.text.toString().trim()
             val password = passwordCard.text.toString().trim()
 
-            if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+            if (email.isNotBlank() && password.isNotBlank()) {
                 loginPresenter.loginUser(email, password)
             } else {
-                Toast.makeText(this, "Sorry, login failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, this.getString(R.string.login_failed_message), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -37,7 +37,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun loginFail() {
-        Toast.makeText(this, "Error while log in", Toast.LENGTH_SHORT).show()
-        Log.d("Error", "Couldn't log in")
+        Toast.makeText(this, this.getString(R.string.login_error_message), Toast.LENGTH_SHORT).show()
     }
 }
