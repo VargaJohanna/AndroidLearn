@@ -41,7 +41,7 @@ class ChatAdapter (
             holder.profileImageViewLeft.visibility = View.GONE
             holder.messageTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
             holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
-            holder.messengerNameTextView.text = context.getString(R.string.myMessage)
+            holder.messengerNameTextView.text = context.getString(R.string.my_message)
 
             val imageUrl = "https://api.adorable.io/avatars/145/$currentUserStatus.png"
             Picasso.with(holder.profileImageViewRight.context)

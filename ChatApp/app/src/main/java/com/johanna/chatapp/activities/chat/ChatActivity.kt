@@ -31,9 +31,8 @@ class ChatActivity : AppCompatActivity(), ChatView {
         sendButton.isEnabled = false
         chatPresenter.fetchUserDetails(otherUserId, otherUserStatus, this)
 
-
         sendButton.setOnClickListener {
-            if (intent.extras.get(userName).toString().equals("").not()) {
+            if ((intent.extras.get(userName).toString() == "").not()) {
                 chatPresenter.saveMessages(otherUserId)
                 messageEdit.setText("")
                 hideKeyboard()
@@ -85,6 +84,14 @@ class ChatActivity : AppCompatActivity(), ChatView {
         return messageEdit.text.toString().trim()
     }
 
+    override fun createChatAdapter(currentUser: String, currentUserStatus: String, otherUserId: String, otherUserStatus: String, context: ChatActivity) {
+        var chatAdapter: ChatAdapter? = null
+        if (chatAdapter == null) {
+            chatAdapter = ChatAdapter(currentUser, currentUserStatus, otherUserId, otherUserStatus, context)
+            setMessgaRecyclerView(chatAdapter)
+            chatAdapter.startListening()
+        }
+    }
     companion object {
         const val userId: String = "id"
         const val userName: String = "name"

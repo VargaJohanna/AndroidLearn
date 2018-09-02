@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import com.google.firebase.database.FirebaseDatabase
 
 import com.johanna.chatapp.R
-import com.johanna.chatapp.activities.adapters.UsersAdapter
+import com.johanna.chatapp.activities.settings.UsersAdapter
 import kotlinx.android.synthetic.main.fragment_users.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class UsersFragment : Fragment() {
     val mDatabase = FirebaseDatabase.getInstance().reference.child("Users").limitToFirst(50)
-    val usersAdapter: UsersAdapter by lazy {UsersAdapter(mDatabase, requireContext())}
+    val usersAdapter: UsersAdapter by lazy { UsersAdapter(mDatabase, requireContext()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_users, container, false)

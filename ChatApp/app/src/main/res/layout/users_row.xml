@@ -38,7 +38,7 @@
                 android:padding="5dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="91dp"
-                android:text="@string/defaultProfileName" />
+                android:text="@string/default_profile_name" />
 
             <TextView
                 android:id="@+id/userStatus"

@@ -38,7 +38,7 @@
                     android:layout_marginEnd="50dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="20dp"
-                    android:text="@string/enterStatus"
+                    android:text="@string/enter_status"
                     android:textColor="#fff"
                     android:textSize="19sp"
                     android:textStyle="bold" />
@@ -68,7 +68,7 @@
                         android:layout_marginTop="40dp"
                         android:background="@drawable/bt_shape"
                         android:stateListAnimator="@drawable/state_list_animator_z"
-                        android:text="@string/updateStatus"
+                        android:text="@string/update_status"
                         android:textColor="#f0f7f4" />
 
                 </RelativeLayout>

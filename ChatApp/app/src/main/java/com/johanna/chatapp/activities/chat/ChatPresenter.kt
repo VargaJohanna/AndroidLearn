@@ -20,12 +20,7 @@ class ChatPresenter constructor(private val chatView: ChatView) {
     }
 
     fun userIsReady(currentUserStatus: String, otherUserId: String, otherUserStatus: String, context: ChatActivity) {
-        var chatAdapter: ChatAdapter? = null
-        if (chatAdapter == null) {
-            chatAdapter = createChatAdapter(currentUserStatus, otherUserId, otherUserStatus, context)
-            chatView.setMessgaRecyclerView(chatAdapter)
-            chatAdapter.startListening()
-        }
+        chatView.createChatAdapter(currentUser, currentUserStatus, otherUserId, otherUserStatus, context)
     }
 
     fun fetchUserDetails(otherUserId: String, otherUserStatus: String, context: ChatActivity) {
@@ -42,10 +37,6 @@ class ChatPresenter constructor(private val chatView: ChatView) {
                         userIsReady(currentUserStatus, otherUserId, otherUserStatus, context)
                     }
                 })
-    }
-
-    private fun createChatAdapter(currentUserStatus: String, otherUserId: String, otherUserStatus: String, context: ChatActivity): ChatAdapter {
-        return ChatAdapter(currentUser, currentUserStatus, otherUserId, otherUserStatus, context)
     }
 
     fun saveMessages(otherUserId: String) {
