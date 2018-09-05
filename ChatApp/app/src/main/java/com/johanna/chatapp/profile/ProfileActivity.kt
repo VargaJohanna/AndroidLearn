@@ -20,7 +20,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
             setDisplayHomeAsUpEnabled(true)
         }
 
-        userId = intent.extras.get(userId).toString()
+        userId = intent.extras.get(userIdIntent).toString()
         profilePresenter.setUpProfile()
     }
 
@@ -40,6 +40,6 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
     }
 
     companion object {
-        const val userId: String = "id"
+        const val userIdIntent: String = "id"
     }
 }

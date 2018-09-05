@@ -12,7 +12,7 @@ class StatusActivity : AppCompatActivity(), StatusView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_status)
-        supportActionBar!!.title = "Status"
+        supportActionBar?.title = getString(R.string.status)
 
         if (intent.extras != null) {
             changeStatusCard.setText(intent.extras.get(status).toString())
@@ -26,12 +26,12 @@ class StatusActivity : AppCompatActivity(), StatusView {
     }
 
     override fun statusUpdateSuccess() {
-        Toast.makeText(this, "Status updated", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.statusUpdated), Toast.LENGTH_SHORT).show()
         finish()
     }
 
     override fun statusUpdateFail() {
-        Toast.makeText(this, "Status not updated", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.statusNotUpdated), Toast.LENGTH_SHORT).show()
     }
 
     companion object {

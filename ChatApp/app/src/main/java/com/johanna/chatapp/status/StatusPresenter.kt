@@ -14,7 +14,7 @@ class StatusPresenter constructor(private val statusActivity: StatusActivity) {
                     .child(Database.usersNode)
                     .child(userUid)
 
-            userReference!!.child(Database.statusNode)
+            userReference.child(Database.statusNode)
                     .setValue(currentStatus)
                     .addOnCompleteListener { task: Task<Void> ->
                         statusUpdateResult(task.isSuccessful)

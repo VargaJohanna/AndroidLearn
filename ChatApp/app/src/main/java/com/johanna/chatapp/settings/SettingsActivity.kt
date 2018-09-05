@@ -10,14 +10,16 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity(), SettingsView {
-    val settingsPresenter = SettingsPresenter(this)
+    private val settingsPresenter = SettingsPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        supportActionBar?.title = this.getString(R.string.settings_tab)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.apply {
+            title = getString(R.string.settings_tab)
+            setDisplayHomeAsUpEnabled(true)
+        }
 
         settingsPresenter.fetchUSerDetails()
 
@@ -33,21 +35,13 @@ class SettingsActivity : AppCompatActivity(), SettingsView {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
     override fun updateUserDetails(userDisplayName: String, userStatusData: String, userThumbImage: String) {
         settingsStatus.text = userStatusData
         settingsDisplayName.text = userDisplayName
 
-        Picasso.with(this@SettingsActivity)
+        Picasso.with(this)
                 .load(userThumbImage)
                 .placeholder(R.drawable.profile_img)
                 .into(settingsProfileImage)
-    }
-
-    companion object {
-        const val GALLERY_ID = 1
     }
 }

@@ -48,7 +48,7 @@ class UsersAdapter(
 
                 if (i == 0) {
                     val profileIntent = Intent(context, ProfileActivity::class.java)
-                    profileIntent.putExtra(ProfileActivity.userId, userId)
+                    profileIntent.putExtra(ProfileActivity.userIdIntent, userId)
                     context.startActivity(profileIntent)
                 } else {
                     val chatIntent = Intent(context, ChatActivity::class.java)
