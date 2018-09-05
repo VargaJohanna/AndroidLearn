@@ -8,15 +8,19 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity(), ProfileView {
-    private val profilePresenter by lazy {ProfilePresenter(userIdValue, this)}
-    private lateinit var userIdValue: String
+    private val profilePresenter by lazy {ProfilePresenter(userId, this)}
+    private lateinit var userId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-        supportActionBar?.title = this.getString(R.string.profile_tab)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        userIdValue = intent.extras.get(userId).toString()
+
+        supportActionBar?.apply {
+            title = getString(R.string.profile_tab)
+            setDisplayHomeAsUpEnabled(true)
+        }
+
+        userId = intent.extras.get(userId).toString()
         profilePresenter.setUpProfile()
     }
 
@@ -29,7 +33,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         profileName.text = displayName
         profileStatus.text = status
 
-        Picasso.with(this@ProfileActivity)
+        Picasso.with(this)
                 .load(image)
                 .placeholder(R.drawable.profile_img)
                 .into(profilePicture)

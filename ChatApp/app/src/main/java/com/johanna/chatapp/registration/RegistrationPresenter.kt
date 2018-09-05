@@ -26,10 +26,10 @@ class RegistrationPresenter constructor(private val registrationView: Registrati
 
     private fun updateDatabase(displayName: String, databaseReference: DatabaseReference) {
         val userObject = HashMap<String, String>()
-        userObject.put(Database.displayNameNode, displayName)
-        userObject.put("status", "Hello")
-        userObject.put("image", "default")
-        userObject.put("thumb_image", "default")
+        userObject[Database.displayNameNode] = displayName
+        userObject[Database.statusNode] = "Hello"
+        userObject["image"] = "default"
+        userObject["thumb_image"] = "default"
         databaseReference.setValue(userObject).addOnCompleteListener { task: Task<Void> ->
             updateDatabaseResult(task.isSuccessful, displayName)
         }

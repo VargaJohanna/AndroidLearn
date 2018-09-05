@@ -44,6 +44,6 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun onUserNotLoggedIn() {
-        Toast.makeText(this, "Need to login", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.needToLogin), Toast.LENGTH_LONG).show()
     }
 }

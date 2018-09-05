@@ -26,7 +26,7 @@ class ChatPresenter constructor(private val chatView: ChatView) {
 
                     override fun onDataChange(data: DataSnapshot) {
                         currentUserName = data.child(Database.displayNameNode).value.toString()
-                        val currentUserStatus = data.child("status").value.toString()
+                        val currentUserStatus = data.child(Database.statusNode).value.toString()
                         chatView.enableSendButton()
                         userIsReady(currentUserStatus, otherUserId, otherUserStatus, context)
                     }

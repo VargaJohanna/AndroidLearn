@@ -16,14 +16,14 @@ class RegistrationActivity : AppCompatActivity(), RegistrationView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
 
-        accountCreateButtonEt.setOnClickListener {
-            val email = accountEmailEt.text.toString().trim()
-            val password = accountPasswordEt.text.toString().trim()
-            val displayName = accountDisplayNameEt.text.toString().trim()
+        accountCreateButton.setOnClickListener {
+            val email = accountEmail.text.toString().trim()
+            val password = accountPassword.text.toString().trim()
+            val displayName = accountDisplayName.text.toString().trim()
 
-            if (!TextUtils.isEmpty(displayName)
-                    && !TextUtils.isEmpty(email)
-                    && !TextUtils.isEmpty(password)) {
+            if (!displayName.isEmpty()
+                    && !email.isEmpty()
+                    && !password.isEmpty()) {
                 registrationPresenter.createAccount(email, password, displayName)
             } else {
                 Toast.makeText(this, R.string.fill_fields, Toast.LENGTH_SHORT).show()

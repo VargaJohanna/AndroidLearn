@@ -52,7 +52,7 @@
                 android:paddingStart="20dp">
 
                 <EditText
-                    android:id="@+id/accountDisplayNameEt"
+                    android:id="@+id/accountDisplayName"
                     android:background="@drawable/selector_bg_edit_2"
                     android:inputType="textCapSentences"
                     android:hint="@string/display_name"
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:id="@+id/accountEmailEt"
+                    android:id="@+id/accountEmail"
                     android:background="@drawable/selector_bg_edit_2"
                     android:inputType="textEmailAddress"
                     android:hint="@string/enter_email"
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:id="@+id/accountPasswordEt"
+                    android:id="@+id/accountPassword"
                     android:background="@drawable/selector_bg_edit_2"
                     android:inputType="textPassword"
                     android:hint="@string/password_field"
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <Button
-                        android:id="@+id/accountCreateButtonEt"
+                        android:id="@+id/accountCreateButton"
                         android:background="@drawable/bt_shape"
                         android:stateListAnimator="@drawable/state_list_animator_z"
                         android:textColor="#f0f7f4"

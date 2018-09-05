@@ -4,5 +4,6 @@ object Database {
     const val usersNode = "Users"
     const val messagesNode = "messages"
     const val displayNameNode = "displayName"
+    const val statusNode = "status"
 
 }
