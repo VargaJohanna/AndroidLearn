@@ -28,8 +28,8 @@ class RegistrationPresenter constructor(private val registrationView: Registrati
         val userObject = HashMap<String, String>()
         userObject[Database.displayNameNode] = displayName
         userObject[Database.statusNode] = "Hello"
-        userObject["image"] = "default"
-        userObject["thumb_image"] = "default"
+        userObject[Database.imageNode] = "default"
+        userObject[Database.thumbImageNode] = "default"
         databaseReference.setValue(userObject).addOnCompleteListener { task: Task<Void> ->
             updateDatabaseResult(task.isSuccessful, displayName)
         }
