@@ -1,4 +1,4 @@
-package com.johanna.chatapp
+package com.chatapp
 
 import org.junit.Test
 

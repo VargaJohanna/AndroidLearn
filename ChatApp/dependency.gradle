@@ -30,7 +30,7 @@ ext.files = [
 ]
 
 ext.androidLib = [
-        kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin",
+        kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
         appCompat       : "com.android.support:appcompat-v7:$versions.androidSupport",
         constraintLayout: "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
         design          : "com.android.support:design:$versions.androidSupport",

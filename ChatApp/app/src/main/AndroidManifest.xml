@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.johanna.chatapp">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.chatapp">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -11,26 +12,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.johanna.chatapp.main.MainActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.chatapp.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/> -->
-        android:theme="@style/Base.Theme.AppCompat"/>
         <!-- optional (needed if default theme has no action bar) -->
-        <activity android:name="com.johanna.chatapp.login.LoginActivity" />
-        <activity android:name="com.johanna.chatapp.registration.RegistrationActivity" />
-        <activity android:name="com.johanna.chatapp.dashboard.DashboardActivity" />
-        <activity android:name="com.johanna.chatapp.settings.SettingsActivity"/>
-        <activity android:name="com.johanna.chatapp.status.StatusActivity" />
-        <activity android:name="com.johanna.chatapp.profile.ProfileActivity"/>
+        <activity android:name="com.chatapp.login.LoginActivity" />
+        <activity android:name="com.chatapp.registration.RegistrationActivity" />
+        <activity android:name="com.chatapp.dashboard.DashboardActivity" />
+        <activity android:name="com.chatapp.settings.SettingsActivity"/>
+        <activity android:name="com.chatapp.status.StatusActivity" />
+        <activity android:name="com.chatapp.profile.ProfileActivity"/>
         <activity
-            android:name="com.johanna.chatapp.chat.ChatActivity"
-            android:parentActivityName="com.johanna.chatapp.dashboard.DashboardActivity" />
+            android:name="com.chatapp.chat.ChatActivity"
+            android:parentActivityName="com.chatapp.dashboard.DashboardActivity" />
     </application>
 
 </manifest>

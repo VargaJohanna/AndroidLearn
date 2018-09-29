@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:465231649335:android:156c5f2cfc6eae3f",
         "android_client_info": {
-          "package_name": "com.johanna.chatapp"
+          "package_name": "com.chatapp"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "465231649335-n6ivhekl0frvqb8s8mn23gnsp6qpvk7p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.johanna.chatapp",
+            "package_name": "com.chatapp",
             "certificate_hash": "3511c779e46495eef3d9fbfc8c6ddcd605c0b1e1"
           }
         },
