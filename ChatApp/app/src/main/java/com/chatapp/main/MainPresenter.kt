@@ -1,5 +1,6 @@
 package com.chatapp.main
 
+import com.chatapp.ui.main.MainView
 import com.google.firebase.auth.FirebaseAuth
 
 class MainPresenter constructor(private val mainView: MainView){

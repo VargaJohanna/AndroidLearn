@@ -1,4 +1,4 @@
-package com.chatapp.main
+package com.chatapp.ui.main
 
 interface MainView {
     fun onUserLoggedIn()

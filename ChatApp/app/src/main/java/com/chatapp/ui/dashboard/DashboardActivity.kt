@@ -10,7 +10,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.chatapp.R
 import com.chatapp.dashboard.SectionPageAdapter
-import com.chatapp.main.MainActivity
+import com.chatapp.ui.main.MainActivity
 import com.chatapp.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 

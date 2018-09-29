@@ -1,10 +1,11 @@
-package com.chatapp.main
+package com.chatapp.ui.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.chatapp.R
+import com.chatapp.main.MainPresenter
 import com.chatapp.ui.dashboard.DashboardActivity
 import com.chatapp.ui.login.LoginActivity
 import com.chatapp.registration.RegistrationActivity
