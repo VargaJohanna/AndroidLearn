@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <!-- optional (needed if default theme has no action bar) -->
-        <activity android:name="com.chatapp.login.LoginActivity" />
+        <activity android:name="com.chatapp.ui.login.LoginActivity" />
         <activity android:name="com.chatapp.registration.RegistrationActivity" />
         <activity android:name="com.chatapp.ui.dashboard.DashboardActivity" />
         <activity android:name="com.chatapp.settings.SettingsActivity"/>
