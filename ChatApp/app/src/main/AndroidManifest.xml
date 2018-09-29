@@ -24,13 +24,13 @@
         <!-- optional (needed if default theme has no action bar) -->
         <activity android:name="com.chatapp.login.LoginActivity" />
         <activity android:name="com.chatapp.registration.RegistrationActivity" />
-        <activity android:name="com.chatapp.dashboard.DashboardActivity" />
+        <activity android:name="com.chatapp.ui.dashboard.DashboardActivity" />
         <activity android:name="com.chatapp.settings.SettingsActivity"/>
         <activity android:name="com.chatapp.status.StatusActivity" />
         <activity android:name="com.chatapp.profile.ProfileActivity"/>
         <activity
             android:name="com.chatapp.ui.chat.ChatActivity"
-            android:parentActivityName="com.chatapp.dashboard.DashboardActivity" />
+            android:parentActivityName="com.chatapp.ui.dashboard.DashboardActivity" />
     </application>
 
 </manifest>

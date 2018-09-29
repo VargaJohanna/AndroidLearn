@@ -1,4 +1,4 @@
-package com.chatapp.dashboard
+package com.chatapp.ui.dashboard
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.chatapp.R
+import com.chatapp.dashboard.SectionPageAdapter
 import com.chatapp.main.MainActivity
 import com.chatapp.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*

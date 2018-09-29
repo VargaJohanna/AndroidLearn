@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.chatapp.R
-import com.chatapp.dashboard.DashboardActivity
+import com.chatapp.ui.dashboard.DashboardActivity
 import com.chatapp.login.LoginActivity
 import com.chatapp.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_main.*

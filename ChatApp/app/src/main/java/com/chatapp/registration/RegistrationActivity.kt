@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.chatapp.R
-import com.chatapp.dashboard.DashboardActivity
+import com.chatapp.ui.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.activity_create_account.*
 
 class RegistrationActivity : AppCompatActivity(), RegistrationView {

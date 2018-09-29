@@ -11,7 +11,6 @@ import android.widget.TextView
 import com.chatapp.R
 import com.chatapp.chat.ChatAdapter
 import com.chatapp.chat.ChatPresenter
-import com.chatapp.chat.ChatView
 import com.chatapp.chat.FriendlyMessage
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_chat.*
