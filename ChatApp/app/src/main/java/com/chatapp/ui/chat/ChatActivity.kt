@@ -1,4 +1,4 @@
-package com.chatapp.chat
+package com.chatapp.ui.chat
 
 import android.content.Context
 import android.os.Bundle
@@ -9,6 +9,10 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import com.chatapp.R
+import com.chatapp.chat.ChatAdapter
+import com.chatapp.chat.ChatPresenter
+import com.chatapp.chat.ChatView
+import com.chatapp.chat.FriendlyMessage
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_chat.*
 

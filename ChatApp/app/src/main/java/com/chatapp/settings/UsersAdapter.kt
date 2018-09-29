@@ -12,7 +12,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.Query
 import com.chatapp.R
-import com.chatapp.chat.ChatActivity
+import com.chatapp.ui.chat.ChatActivity
 import com.chatapp.profile.ProfileActivity
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView

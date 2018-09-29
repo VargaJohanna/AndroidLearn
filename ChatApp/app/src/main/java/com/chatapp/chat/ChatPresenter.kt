@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.chatapp.Database
+import com.chatapp.ui.chat.ChatActivity
 
 class ChatPresenter constructor(private val chatView: ChatView) {
     private val databaseReference = FirebaseDatabase.getInstance().reference

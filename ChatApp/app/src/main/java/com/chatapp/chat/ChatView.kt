@@ -1,5 +1,7 @@
 package com.chatapp.chat
 
+import com.chatapp.ui.chat.ChatActivity
+
 interface ChatView {
     fun enableSendButton()
     fun setMessageRecyclerView(chatAdapter: ChatAdapter)
