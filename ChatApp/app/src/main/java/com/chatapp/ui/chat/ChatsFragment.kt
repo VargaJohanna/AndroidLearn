@@ -1,4 +1,4 @@
-package com.chatapp.fragments
+package com.chatapp.ui.chat
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

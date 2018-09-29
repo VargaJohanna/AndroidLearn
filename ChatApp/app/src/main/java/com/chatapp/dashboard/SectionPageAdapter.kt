@@ -2,7 +2,7 @@ package com.chatapp.dashboard
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
-import com.chatapp.fragments.ChatsFragment
+import com.chatapp.ui.chat.ChatsFragment
 import com.chatapp.fragments.UsersFragment
 
 class SectionPageAdapter(fm: android.support.v4.app.FragmentManager) : FragmentPagerAdapter(fm) {
