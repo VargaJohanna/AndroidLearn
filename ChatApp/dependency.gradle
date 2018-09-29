@@ -1,0 +1,61 @@
+ext.versions = [
+        versionCode      : 1,
+        versionName      : "1.0.0",
+        compileVersion   : 27,
+        targetVersion    : 27,
+        minVersion       : 21,
+        kotlin           : "1.2.60",
+        firebase         : "16.0.1",
+        firebaseUiDb     : "4.1.0",
+        androidSupport   : "27.1.1",
+        constraintLayout : "1.1.3",
+        junit            : "4.12",
+        androidTestRunner: "1.0.2",
+        espresso         : "3.0.2",
+        picasso          : "2.5.2",
+        circleImage      : "2.1.0",
+        androidArch      : "1.1.1",
+        gradle           : "3.1.4",
+        googleServices   : "3.1.1"
+]
+
+ext.classPaths = [
+        gradle        : "com.android.tools.build:gradle:$versions.gradle",
+        gradleKotlin  : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        googleServices: "com.google.gms:google-services:$versions.googleServices"
+]
+
+ext.files = [
+        files: fileTree(include: ['*.jar'], dir: 'libs')
+]
+
+ext.androidLib = [
+        kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin",
+        appCompat       : "com.android.support:appcompat-v7:$versions.androidSupport",
+        constraintLayout: "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
+        design          : "com.android.support:design:$versions.androidSupport",
+        support         : "com.android.support:support-v4:$versions.androidSupport",
+        archCommon      : "android.arch.core:common:$versions.androidArch",
+        archCore        : "android.arch.core:runtime:$versions.androidArch",
+        cardView        : "com.android.support:cardview-v7:$versions.androidSupport"
+]
+
+ext.androidTestlib = [
+        testRunner: "com.android.support.test:runner:$versions.androidTestRunner",
+        espresso  : "com.android.support.test.espresso:espresso-core:$versions.espresso",
+        junit     : "junit:junit:$versions.junit"
+]
+
+ext.firebaseLib = [
+        auth    : "com.google.firebase:firebase-auth:$versions.firebase",
+        database: "com.google.firebase:firebase-database:$versions.firebase",
+        uiDb    : "com.firebaseui:firebase-ui-database:$versions.firebaseUiDb"
+]
+
+ext.picassoLib = [
+        picasso: "com.squareup.picasso:picasso:$versions.picasso"
+]
+
+ext.cirleImage = [
+        circelImageView: "de.hdodenhof:circleimageview:$versions.circleImage"
+]
