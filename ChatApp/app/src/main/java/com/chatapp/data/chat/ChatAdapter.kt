@@ -16,7 +16,7 @@ import com.chatapp.R
 import com.chatapp.ui.chat.ChatActivity
 import com.squareup.picasso.Picasso
 
-class ChatAdapter (
+class ChatAdapter(
         private val currentUserId: String,
         private val currentUserStatus: String,
         private val otherUserId: String,
@@ -38,11 +38,13 @@ class ChatAdapter (
         val isMe: Boolean = friendlyMessage.id.equals(currentUserId)
 
         if (isMe) {
-            holder.profileImageViewRight.visibility = View.VISIBLE
-            holder.profileImageViewLeft.visibility = View.GONE
-            holder.messageTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
-            holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
-            holder.messengerNameTextView.text = context.getString(R.string.my_message)
+            with(holder) {
+                profileImageViewRight.visibility = View.VISIBLE
+                profileImageViewLeft.visibility = View.GONE
+                messageTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
+                messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.RIGHT)
+                messengerNameTextView.text = context.getString(R.string.my_message)
+            }
 
             val imageUrl = "https://api.adorable.io/avatars/145/$currentUserStatus.png"
             Picasso.with(holder.profileImageViewRight.context)
@@ -51,10 +53,12 @@ class ChatAdapter (
                     .into(holder.profileImageViewRight)
 
         } else {
-            holder.profileImageViewRight.visibility = View.GONE
-            holder.profileImageViewLeft.visibility = View.VISIBLE
-            holder.messageTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
-            holder.messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
+            with(holder) {
+                profileImageViewRight.visibility = View.GONE
+                profileImageViewLeft.visibility = View.VISIBLE
+                messageTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
+                messengerNameTextView.gravity = (Gravity.CENTER_VERTICAL or Gravity.LEFT)
+            }
 
             databaseReference.child(Database.usersNode).child(otherUserId).child(Database.messagesNode)
                     .addValueEventListener(object : ValueEventListener {
