@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.chatapp.R
-import com.chatapp.main.MainPresenter
+import com.chatapp.data.main.MainPresenter
 import com.chatapp.ui.dashboard.DashboardActivity
 import com.chatapp.ui.login.LoginActivity
-import com.chatapp.registration.RegistrationActivity
+import com.chatapp.ui.registration.RegistrationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView {

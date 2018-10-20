@@ -9,9 +9,9 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import com.chatapp.R
-import com.chatapp.chat.ChatAdapter
-import com.chatapp.chat.ChatPresenter
-import com.chatapp.chat.FriendlyMessage
+import com.chatapp.data.chat.ChatAdapter
+import com.chatapp.data.chat.ChatPresenter
+import com.chatapp.data.chat.FriendlyMessage
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_chat.*
 

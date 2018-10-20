@@ -4,7 +4,6 @@
     package="com.chatapp">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -23,11 +22,11 @@
         </activity>
         <!-- optional (needed if default theme has no action bar) -->
         <activity android:name="com.chatapp.ui.login.LoginActivity" />
-        <activity android:name="com.chatapp.registration.RegistrationActivity" />
+        <activity android:name="com.chatapp.ui.registration.RegistrationActivity" />
         <activity android:name="com.chatapp.ui.dashboard.DashboardActivity" />
-        <activity android:name="com.chatapp.settings.SettingsActivity"/>
-        <activity android:name="com.chatapp.status.StatusActivity" />
-        <activity android:name="com.chatapp.profile.ProfileActivity"/>
+        <activity android:name="com.chatapp.ui.settings.SettingsActivity"/>
+        <activity android:name="com.chatapp.ui.status.StatusActivity" />
+        <activity android:name="com.chatapp.ui.profile.ProfileActivity"/>
         <activity
             android:name="com.chatapp.ui.chat.ChatActivity"
             android:parentActivityName="com.chatapp.ui.dashboard.DashboardActivity" />

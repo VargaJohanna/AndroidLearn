@@ -9,9 +9,9 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.chatapp.R
-import com.chatapp.dashboard.SectionPageAdapter
+import com.chatapp.data.dashboard.SectionPageAdapter
 import com.chatapp.ui.main.MainActivity
-import com.chatapp.settings.SettingsActivity
+import com.chatapp.ui.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : AppCompatActivity() {
@@ -43,7 +43,7 @@ class DashboardActivity : AppCompatActivity() {
         if (item != null) {
             if (item.itemId == (R.id.logoutMenu)) {
                 FirebaseAuth.getInstance().signOut()
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent( this, MainActivity::class.java))
                 finish()
             }
             if (item.itemId == (R.id.settingsMenu)) {

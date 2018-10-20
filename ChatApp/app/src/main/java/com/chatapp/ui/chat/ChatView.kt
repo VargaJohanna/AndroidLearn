@@ -1,6 +1,6 @@
 package com.chatapp.ui.chat
 
-import com.chatapp.chat.ChatAdapter
+import com.chatapp.data.chat.ChatAdapter
 
 interface ChatView {
     fun enableSendButton()
